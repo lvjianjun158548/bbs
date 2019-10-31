@@ -1,0 +1,31 @@
+---------------------------------------------------------------
+[ 2019-10-18T19:03:47+08:00 ] 127.0.0.1 GET /
+[ info ] www.pyg.com/ [è¿è¡Œæ—¶é—´ï¼š1.134065s][åžåçŽ‡ï¼š0.88req/s] [å†…å­˜æ¶ˆè€—ï¼š3,283.33kb] [æ–‡ä»¶åŠ è½½ï¼š60]
+[ info ] [ LANG ] E:\75phpStudy\XiangMu\hometpshop75\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'purpose' => 'prefetch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.pyg.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\Index->index[ E:\75phpStudy\XiangMu\hometpshop75\application\home\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [2002]SQLSTATE[HY000] [2002] ÓÉÓÚÄ¿±ê¼ÆËã»ú»ý¼«¾Ü¾ø£¬ÎÞ·¨Á¬½Ó¡£
+[E:\75phpStudy\XiangMu\hometpshop75\thinkphp\library\think\db\Connection.php:295]

@@ -1,0 +1,36 @@
+---------------------------------------------------------------
+[ 2019-10-25T14:58:19+08:00 ] 127.0.0.1 GET /
+[ info ] www.pyg.com/ [运行时间：1.150066s][吞吐率：0.87req/s] [内存消耗：3,745.95kb] [文件加载：63]
+[ info ] [ LANG ] E:\75phpStudy\XiangMu\hometpshop75\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'purpose' => 'prefetch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.pyg.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\Index->index[ E:\75phpStudy\XiangMu\hometpshop75\application\home\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\75phpStudy\XiangMu\hometpshop75\public/../application/home\view\Index\index.html [ array (
+  0 => 'category',
+  1 => 'lives',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `pyg_live` [ RunTime:0.050003s ]
+[ sql ] [ SQL ] SELECT * FROM `pyg_live` ORDER BY `id` DESC LIMIT 6 [ RunTime:0.178011s ]

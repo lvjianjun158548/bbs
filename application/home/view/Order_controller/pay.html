@@ -1,0 +1,261 @@
+<title>支付页</title>
+
+
+<link rel="stylesheet" type="text/css" href="/static/home/css/pages-pay.css" />
+
+
+
+
+<div class="cart py-container">
+	<!--主内容-->
+	<div class="checkout py-container  pay">
+		<div class="checkout-tit">
+			<h4 class="tit-txt"><span class="success-icon"></span><span
+					class="success-info">订单提交成功，请您及时付款，以便尽快为您发货~~</span></h4>
+			<div class="paymark">
+				<span class="fl">请您在提交订单<em class="orange time">4小时</em>之内完成支付，超时订单会自动取消。订单号：<em>145687</em></span>
+				<span class="fr"><em class="sui-lead">应付金额：</em><em class="orange money">￥17,654</em></span>
+			</div>
+		</div>
+
+		<div class="check-info">
+			<h4>重要说明：</h4>
+			<ol>
+				<li>品优购商城支付平台目前支持<span class="zfb">支付宝</span>支付方式。</li>
+				<li>其它支付渠道正在调试中，敬请期待。</li>
+				<li>为了保证您的购物支付流程顺利完成，请保存以下支付宝信息。</li>
+			</ol>
+			<h4>支付宝账户信息：（很重要，<span class="save">请保存！！！</span>）</h4>
+			<ul>
+				<li>支付帐号：duqthf1038@sandbox.com</li>
+				<li>密码：111111</li>
+				<li>支付密码：111111</li>
+			</ul>
+		</div>
+
+
+		<div class="checkout-steps">
+			<!--收件人信息-->
+			<div class="step-tit">
+				<h5>支付平台</h5>
+			</div>
+			<div class="step-cont">
+				<ul class="payType">
+					{foreach $pay_type as $v}
+					<li class="{if($v['pay_code'] == 'alipay')}selected{/if}" pay_type="{$v.pay_code}"><img
+							src="{$v.logo}"></li>
+					{/foreach}
+
+				</ul>
+
+			</div>
+			<div class="hr"></div>
+
+			<!--支付和送货-->
+			<div class="payshipInfo">
+				<div class="step-tit">
+					<h5>支付网银</h5>
+				</div>
+				<div class="step-cont">
+					<ul class="payType">
+						<li><img src="/static/home/img/_/pay10.jpg"></li>
+						<li><img src="/static/home/img/_/pay11.jpg"></li>
+						<li><img src="/static/home/img/_/pay12.jpg"></li>
+						<li><img src="/static/home/img/_/pay13.jpg"></li>
+						<li><img src="/static/home/img/_/pay14.jpg"></li>
+						<li><img src="/static/home/img/_/pay15.jpg"></li>
+						<li><img src="/static/home/img/_/pay16.jpg"></li>
+						<li><img src="/static/home/img/_/pay17.jpg"></li>
+						<li><img src="/static/home/img/_/pay18.jpg"></li>
+						<li><img src="/static/home/img/_/pay19.jpg"></li>
+						<li><img src="/static/home/img/_/pay20.jpg"></li>
+						<li><img src="/static/home/img/_/pay21.jpg"></li>
+						<li><img src="/static/home/img/_/pay22.jpg"></li>
+
+					</ul>
+				</div>
+				<div class="hr"></div>
+			</div>
+
+			<div class="submit sui-text-center">
+				<a class="sui-btn btn-danger btn-xlarge" id="submit" href="javascript:;" target="_blank">立即支付</a>
+			</div>
+			<div class="otherpay">
+				<div class="step-tit">
+					<h5>其他支付方式</h5>
+				</div>
+				<div class="step-cont">
+					<span><a href="weixinpay.html" target="_blank">微信支付</a></span>
+					<span>中国银联</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<form action="{:url('home/OrderController/toPay')}" style="display: none" method="post">
+	<input type="hidden" name="id" value="{$order.id}">
+	<input type="hidden" name="pay_type" value="">
+</form>
+
+<!--侧栏面板开始-->
+<div class="J-global-toolbar">
+	<div class="toolbar-wrap J-wrap">
+		<div class="toolbar">
+			<div class="toolbar-panels J-panel">
+
+				<!-- 购物车 -->
+				<div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-cart toolbar-animate-out">
+					<h3 class="tbar-panel-header J-panel-header">
+						<a href="" class="title"><i></i><em class="title">购物车</em></a>
+						<span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('cart');"></span>
+					</h3>
+					<div class="tbar-panel-main">
+						<div class="tbar-panel-content J-panel-content">
+							<div id="J-cart-tips" class="tbar-tipbox hide">
+								<div class="tip-inner">
+									<span class="tip-text">还没有登录，登录后商品将被保存</span>
+									<a href="#none" class="tip-btn J-login">登录</a>
+								</div>
+							</div>
+							<div id="J-cart-render">
+								<!-- 列表 -->
+								<div id="cart-list" class="tbar-cart-list">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 小计 -->
+					<div id="cart-footer" class="tbar-panel-footer J-panel-footer">
+						<div class="tbar-checkout">
+							<div class="jtc-number"> <strong class="J-count" id="cart-number">0</strong>件商品 </div>
+							<div class="jtc-sum"> 共计：<strong class="J-total" id="cart-sum">¥0</strong> </div>
+							<a class="jtc-btn J-btn" href="#none" target="_blank">去购物车结算</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- 我的关注 -->
+				<div style="visibility: hidden;" data-name="follow" class="J-content toolbar-panel tbar-panel-follow">
+					<h3 class="tbar-panel-header J-panel-header">
+						<a href="#" target="_blank" class="title"> <i></i> <em class="title">我的关注</em> </a>
+						<span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('follow');"></span>
+					</h3>
+					<div class="tbar-panel-main">
+						<div class="tbar-panel-content J-panel-content">
+							<div class="tbar-tipbox2">
+								<div class="tip-inner"> <i class="i-loading"></i> </div>
+							</div>
+						</div>
+					</div>
+					<div class="tbar-panel-footer J-panel-footer"></div>
+				</div>
+
+				<!-- 我的足迹 -->
+				<div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-history toolbar-animate-in">
+					<h3 class="tbar-panel-header J-panel-header">
+						<a href="#" target="_blank" class="title"> <i></i> <em class="title">我的足迹</em> </a>
+						<span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('history');"></span>
+					</h3>
+					<div class="tbar-panel-main">
+						<div class="tbar-panel-content J-panel-content">
+							<div class="jt-history-wrap">
+								<ul>
+									<!--<li class="jth-item">
+											<a href="#" class="img-wrap"> <img src="/static/home//static/home/./static/home/portal/img/like_03.png" height="100" width="100" /> </a>
+											<a class="add-cart-button" href="#" target="_blank">加入购物车</a>
+											<a href="#" target="_blank" class="price">￥498.00</a>
+										</li>
+										<li class="jth-item">
+											<a href="#" class="img-wrap"> <img src="/static/home//static/home//static/home/portal/img/like_02.png" height="100" width="100" /></a>
+											<a class="add-cart-button" href="#" target="_blank">加入购物车</a>
+											<a href="#" target="_blank" class="price">￥498.00</a>
+										</li>-->
+								</ul>
+								<a href="#" class="history-bottom-more" target="_blank">查看更多足迹商品 &gt;&gt;</a>
+							</div>
+						</div>
+					</div>
+					<div class="tbar-panel-footer J-panel-footer"></div>
+				</div>
+
+			</div>
+
+			<div class="toolbar-header"></div>
+
+			<!-- 侧栏按钮 -->
+			<div class="toolbar-tabs J-tab">
+				<div onclick="cartPanelView.tabItemClick('cart')" class="toolbar-tab tbar-tab-cart" data="购物车"
+					tag="cart">
+					<i class="tab-ico"></i>
+					<em class="tab-text"></em>
+					<span class="tab-sub J-count " id="tab-sub-cart-count">0</span>
+				</div>
+				<div onclick="cartPanelView.tabItemClick('follow')" class="toolbar-tab tbar-tab-follow" data="我的关注"
+					tag="follow">
+					<i class="tab-ico"></i>
+					<em class="tab-text"></em>
+					<span class="tab-sub J-count hide">0</span>
+				</div>
+				<div onclick="cartPanelView.tabItemClick('history')" class="toolbar-tab tbar-tab-history" data="我的足迹"
+					tag="history">
+					<i class="tab-ico"></i>
+					<em class="tab-text"></em>
+					<span class="tab-sub J-count hide">0</span>
+				</div>
+			</div>
+
+			<div class="toolbar-footer">
+				<div class="toolbar-tab tbar-tab-top"> <a href="#"> <i class="tab-ico  "></i> <em
+							class="footer-tab-text">顶部</em> </a> </div>
+				<div class="toolbar-tab tbar-tab-feedback"> <a href="#" target="_blank"> <i class="tab-ico"></i> <em
+							class="footer-tab-text ">反馈</em> </a> </div>
+			</div>
+
+			<div class="toolbar-mini"></div>
+
+		</div>
+
+		<div id="J-toolbar-load-hook"></div>
+
+	</div>
+</div>
+<!--购物车单元格 模板-->
+<script type="text/template" id="tbar-cart-item-template">
+		<div class="tbar-cart-item" >
+			<div class="jtc-item-promo">
+				<em class="promo-tag promo-mz">满赠<i class="arrow"></i></em>
+				<div class="promo-text">已购满600元，您可领赠品</div>
+			</div>
+			<div class="jtc-item-goods">
+				<span class="p-img"><a href="#" target="_blank"><img src="{2}" alt="{1}" height="50" width="50" /></a></span>
+				<div class="p-name">
+					<a href="#">{1}</a>
+				</div>
+				<div class="p-price"><strong>¥{3}</strong>×{4} </div>
+				<a href="#none" class="p-del J-del">删除</a>
+			</div>
+		</div>
+	</script>
+<!--侧栏面板结束-->
+
+<script type="text/javascript">
+	$(function () {
+		$("ul.payType li").click(function () {
+			$('ul.payType li').removeClass('selected');
+			$(this).addClass('selected');
+		})
+		$("#submit").click(function () {
+			//alert('34543');
+			var pay_type = $('ul.payType li.selected').attr('pay_type');
+
+			$('input[name=pay_type]').val(pay_type);
+
+			$('form').submit();
+		});
+
+	})
+</script>
+</body>
+
+</html>
